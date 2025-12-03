@@ -1,22 +1,20 @@
-const form=document.getElementById("contact-form");
-const nameInput=document.getElementById("name");
-const emailInput=document.getElementById("email");
-const messageInput=document.getElementById("message");
-const feedback=document.getElementById("feedback");
+// Select form and thank you message elements
+const form = document.getElementById('contactForm');
+const thankYouMsg = document.getElementById('thankYou');
 
-function isValidEmail(email){ return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
+// Listen for form submit
+form.addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent page refresh
 
-form.addEventListener("submit", function(e){
-  e.preventDefault();
-  if(nameInput.value.trim()==="" || emailInput.value.trim()==="" || messageInput.value.trim()===""){
-    feedback.textContent="Please fill in all fields.";
-    feedback.style.color="red"; return;
-  }
-  if(!isValidEmail(emailInput.value)){
-    feedback.textContent="Please enter a valid email address.";
-    feedback.style.color="red"; return;
-  }
-  feedback.textContent="Thank you! Your message has been sent.";
-  feedback.style.color="green";
+  // Optional: Get user input values
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const message = document.getElementById('message').value;
+
+  // Display thank you message
+  thankYouMsg.textContent = `Thank you, ${name}! Your message has been sent.`;
+  thankYouMsg.style.display = 'block';
+
+  // Reset the form fields
   form.reset();
 });
