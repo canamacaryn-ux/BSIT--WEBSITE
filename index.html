@@ -4,39 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BSIT Department - Home</title>
+  <!-- Link sa external CSS file para sa style sa website -->
   <link rel="stylesheet" href="index.css">
+  <style>
+    html {
+      scroll-behavior: smooth; /* Para smooth ang pag-scroll kung mo-click ka sa anchor link */
+    }
+  </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <h2 class="logo">BSIT Department</h2>
-      <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Wrapper nag contain sa tanan content sa website -->
+  <div class="wrapper">
+    
+    <!-- HEADER SECTION -->
+    <header>
+      <div class="container nav">
+        <!-- Logo sa website -->
+        <h2 class="logo">BSIT Department</h2>
+        <!-- Navigation menu / links padulong sa lain nga pages -->
+        <nav>
+          <a href="index.html" class="active">Home</a> <!-- Active page mao ni karon -->
+          <a href="about.html">Program Profile</a>
+          <a href="faculty.html">Faculty</a>
+          <a href="organizations.html">Student Organizations</a>
+          <a href="announcements.html">Announcements</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <section class="hero">
-    <div class="hero-text">
-      <h1>Welcome to the BSIT Department</h1>
-      <p>Empowering future IT professionals through innovation and excellence.</p>
-      <a href="#features" class="btn">Learn More</a>
-    </div>
-  </section>
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- HERO SECTION / unang makita nga part sa page -->
+      <section class="hero">
+        <div class="hero-text">
+          <h1>Welcome to BSIT Department</h1> <!-- Main heading -->
+          <p>Empowering future IT professionals through technology and innovation.</p> <!-- Subtitle or description -->
+          <a href="#highlights" class="btn">Learn More</a> <!-- Button nga mo-scroll padulong sa highlights section -->
+        </div>
+      </section>
 
-  <section class="features container" id="features">
-    <h2>What We Offer</h2>
-    <div class="grid">
-    </div>
-  </section>
+      <!-- HIGHLIGHTS SECTION -->
+      <section id="highlights" class="features container">
+        <h2>Our Highlights</h2> <!-- Section heading -->
+        <div class="grid">
+          <!-- Mga cards para sa importanteng features -->
+          <div class="card">
+            <h3>Announcements</h3>
+            <p>Stay updated with the latest news and events in our department.</p>
+          </div>
+          <div class="card">
+            <h3>Faculty</h3>
+            <p>Learn from experienced and dedicated instructors in IT fields.</p>
+          </div>
+          <div class="card">
+            <h3>Events</h3>
+            <p>Join groups to enhance your IT skills and network with peers.</p>
+          </div>
+        </div>
+      </section>
+    </main>
 
-  <footer>
-    <p>© 2025 BSIT Department. All rights reserved.</p>
-  </footer>
-
-  <script src="index.js"></script>
+    <!-- FOOTER SECTION -->
+    <footer>
+      <p>&copy; 2025 BSIT Department — All Rights Reserved.</p> <!-- Copyright info -->
+    </footer>
+  </div>
 </body>
 </html>
