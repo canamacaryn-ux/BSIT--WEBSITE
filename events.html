@@ -5,31 +5,58 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BSIT Department - Events</title>
   <link rel="stylesheet" href="index.css">
-  <style>
-  </style>
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <h2 class="logo">BSIT Department</h2>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="events.html" class="active">Events</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="container nav">
+        <h2 class="logo">BSIT Department</h2>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">Program Profile</a>
+          <a href="faculty.html">Faculty</a>
+          <a href="organizations.html">Student Organizations</a>
+          <a href="announcements.html">Announcements</a>
+          <a href="events.html" class="active">Events</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <section class="container">
-    <h2>Upcoming Events</h2>
-    <div id="events-list" class="grid"></div>
-  </section>
+    <!-- MAIN CONTENT -->
+    <main>
+      <section class="container">
+        <!-- Section Heading -->
+        <h2 class="section-title">Upcoming Events</h2>
 
-  <footer>
-    <p>© 2025 BSIT Department. All rights reserved.</p>
-  </footer>
+        <!-- EVENTS GRID -->
+        <div class="grid">
+          <div class="event-card">
+            <img src="image2.jpg" alt="IT Seminar">
+            <h3>IT Seminar2025</h3>
+            <p>Date: Dec 15, 2025</p>
+          </div>
 
-  <script src="events.js"></script>
+          <div class="event-card">
+            <img src="image1.jpg" alt="Hackathon">
+            <h3>Hackathon</h3>
+            <p>Date: Jan 10, 2026</p>
+          </div>
+
+          <div class="event-card">
+            <img src="image.webp" alt="Alumni Event">
+            <h3>Alumni Event</h3>
+            <p>Date: Feb 5, 2026</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 BSIT Department — All Rights Reserved.</p>
+    </footer>
+  </div>
 </body>
 </html>
