@@ -7,33 +7,50 @@
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <header>
-    <div class="container nav">
-      <h2 class="logo">BSIT Department</h2>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html" class="active">Contact</a>
-      </nav>
-    </div>
-  </header>
+  <div class="wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="container nav">
+        <h2 class="logo">BSIT Department</h2>
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="about.html">Program Profile</a>
+          <a href="faculty.html">Faculty</a>
+          <a href="organizations.html">Student Organizations</a>
+          <a href="announcements.html">Announcements</a>
+          <a href="events.html">Events</a>
+          <a href="contact.html" class="active">Contact</a>
+        </nav>
+      </div>
+    </header>
 
-  <section class="container">
-    <h2>Contact Us</h2>
-    <form id="contact-form">
-      <input type="text" id="name" placeholder="Your Name">
-      <input type="email" id="email" placeholder="Your Email">
-      <textarea id="message" placeholder="Your Message"></textarea>
-      <button type="submit">Send</button>
-      <p id="feedback"></p>
-    </form>
-  </section>
+    <!-- MAIN -->
+    <main>
+      <section class="container">
+        <!-- Section Heading -->
+        <h2 class="section-title">Contact Us!</h2>
 
-  <footer>
-    <p>© 2025 BSIT Department. All rights reserved.</p>
-  </footer>
+      <section class="container">
+        <h2>Send us a Message</h2>
+        <form>
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+          <textarea rows="5" placeholder="Your Message" required></textarea>
+          <button type="submit">Submit</button>
+        </form>
+          <!-- Thank you message -->
+  <p id="thankYou" style="display:none; color:green; margin-top:15px;">
+    Thank you! Your message has been sent.
+  </p>
+      </section>
+      
+    </main>
 
-  <script src="contact.js"></script>
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 BSIT Department — All Rights Reserved.</p>
+    </footer>
+  </div>
+  
 </body>
 </html>
