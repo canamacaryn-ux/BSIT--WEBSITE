@@ -1,3 +1,5 @@
+/* ------------------ GLOBAL ------------------ */
+/* Reset sa tanan elements ug set sa default box-sizing ug font */
 * {
   margin: 0;
   padding: 0;
@@ -5,175 +7,334 @@
   font-family: Arial, sans-serif;
 }
 
+html, body {
+  height: 100%; /* Kinahanglan para sa sticky footer */
+  margin: 0;
+  background: #f4f7fc; /* Background color sa page */
+  color: #333; /* Default text color */
+}
+
 body {
-  background: lightblue;
-  color: black;
+  display: flex;
+  flex-direction: column; /* Para vertical ang layout */
+  min-height: 100vh; /* Full viewport height */
+}
+
+main {
+  flex: 1; /* Main content mopuno sa available space aron i-push ang footer sa ubos */
 }
 
 .container {
-  width: 90%;
-  max-width: 1100px;
-  margin: auto;
+  width: 90%; /* Width sa container relative sa screen */
+  max-width: 1100px; /* Max width */
+  margin: auto; /* Center horizontally */
 }
 
+/* ------------------ HEADER & NAV ------------------ */
 header {
-  background: darkblue;
-  padding: 15px;
+  background: #002d72; /* Dark blue header */
+  padding: 15px 0;
+  position: sticky; /* Mo-stay sa top kung mo-scroll */
+  top: 0;
+  z-index: 100; /* Para naa sa ibabaw sa ubang elements */
+}
+
+header .container {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: space-between; /* Logo ug nav link naay space */
+  align-items: center; /* Center vertically */
 }
 
 header .logo {
   color: #fff;
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   font-weight: bold;
 }
 
+/* Style sa navigation links */
 nav a {
   color: #fff;
   margin-left: 15px;
   text-decoration: none;
   font-weight: 500;
+  padding: 6px 12px;
+  transition: 0.3s;
+  border-radius: 4px;
 }
 
+/* Hover effect ug active page */
+nav a:hover,
 nav a.active {
-  text-decoration: underline;
-}
-.hero {
-  background: url('hero-person.jpg') no-repeat center center;
-  background-size: contain; 
-  padding: 250px 0px;
-  text-align: center;
-  color: #fff;
-  position: relative;
+  background: #004a9f;
 }
 
+/* ------------------ HERO SECTION ------------------ */
+.hero {
+  background: url('hero-person.jpg') no-repeat center center/cover; /* Hero image */
+  width: 100%;
+  height: 90vh;
+  text-align: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+/* Dark overlay para readable ang text */
 .hero::before {
   content: "";
   position: absolute;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.3);
-  z-index:1;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: rgba(0,0,0,0.4);
 }
 
-.hero .hero-text {
+.hero-text {
   position: relative;
-  z-index:2;
+  z-index: 2; /* Above overlay */
+  max-width: 600px;
 }
 
-.hero .hero-text h1 {
-  font-size: 2.5rem;
+.hero-text h1 {
+  font-size: 3rem;
   margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
-.hero .hero-text p {
+.hero-text p {
   font-size: 1.2rem;
   margin-bottom: 20px;
 }
 
+/* Hero button */
 .hero .btn {
   display: inline-block;
-  padding: 10px 25px;
-  background: #1b3b6f;
+  padding: 12px 30px;
+  background: #004a9f;
   color: #fff;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 6px;
   font-weight: bold;
+  transition: 0.3s;
 }
 
-.features {
+.hero .btn:hover {
+  background: #001c46;
+}
+
+/* ------------------ PAGE BANNER ------------------ */
+.page-banner {
+  background: #002d72;
+  color: #fff;
   padding: 40px 0;
-}
-
-.features h2 {
   text-align: center;
   margin-bottom: 30px;
 }
 
-.grid {
+/* ------------------ CONTENT SECTIONS ------------------ */
+section {
+  padding: 30px 0;
+}
+
+/* ------------------ GRID LAYOUT ------------------ */
+/* Flex layout para cards ug lists */
+.grid, .faculty-grid, .org-cards, .achievements-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 25px;
   justify-content: center;
 }
 
+/* ------------------ FEATURE CARDS ------------------ */
 .card {
   background: #fff;
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  width: 250px;
+  width: 260px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 .card h3 {
-  color: #1b3b6f;
+  color: #002d72;
   margin-bottom: 10px;
 }
 
-.card p {
-  font-size: 0.95rem;
-  line-height: 1.4;
+/* ------------------ EVENT / ANNOUNCEMENT CARDS ------------------ */
+.event-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 260px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .event-card img {
   width: 100%;
-  height: 150px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 10px;
 }
 
-.announcement {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  background: #fff;
-}
-
-.announcement h3 {
+.event-card h3 {
+  color: #002d72;
   margin-bottom: 5px;
-  color: #1b3b6f;
 }
 
-.announcement p {
-  margin: 5px 0;
+.event-card p {
+  font-size: 0.95rem;
+  color: #555;
 }
 
+.event-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Optional Section Title Style */
+.section-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Announcement style */
+.announcement {
+  background: #fff;
+  border-left: 5px solid #004a9f;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* ------------------ FACULTY CARDS ------------------ */
+.faculty-card img {
+  width: 100%;         
+  height: 200px;       
+  object-fit: cover;    
+  border-radius: 8px;   
+  margin-bottom: 10px;
+}
+
+.faculty-card {
+  background: #fff;
+  width: 250px;
+  text-align: center;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.faculty-card h3 {
+  margin: 10px 0 5px;
+  color: #002d72;
+}
+
+.faculty-card p {
+  font-size: 0.9rem;
+}
+
+.faculty-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* ------------------ ORGANIZATION CARDS ------------------ */
+.org-card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 280px;
+  text-align: center;
+  border: 2px solid #002d72;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.org-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.org-card h3 {
+  margin-bottom: 10px;
+}
+
+/* Duplicate card style for general purpose */
+.card {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.card {
+  width: 90%;          /* relative sa screen */
+  max-width: 800px;    /* dili molapas sa 800px */
+  margin: 20px auto;   /* center sa page */
+}
+
+/* Optional hover effect para mas “alive” */
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ------------------ CONTACT FORM ------------------ */
 input, textarea {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  border-radius: 6px;
+  border: 1px solid #bbb;
 }
 
 button {
-  padding: 10px 20px;
-  background: #1b3b6f;
+  padding: 12px 22px;
+  background: #002d72;
   color: #fff;
-  border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
+  border: none;
 }
 
 button:hover {
-  background: #16315a;
+  background: #001c46;
 }
 
-#searchBox {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
+/* ------------------ FOOTER ------------------ */
 footer {
+  background: #002d72;
+  color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 25px;
+  margin-top: 0;
+}
+
+/* ------------------ RESPONSIVE ------------------ */
+@media (max-width: 768px) {
+  nav a {
+    margin-left: 8px;
+    font-size: 0.9rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero {
+    height: 80vh;
+  }
+
+  .grid, .faculty-grid, .org-cards, .achievements-list {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header .logo {
+    font-size: 1.5rem;
+  }
 }
