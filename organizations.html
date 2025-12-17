@@ -1,40 +1,39 @@
+<?php
+// organizations.php - converted from organizations.html
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BSIT Department - Student Organizations</title>
-  <!-- Link sa external CSS file para sa style sa website -->
   <link rel="stylesheet" href="index.css">
 </head>
 <body>
-  <!-- ------------------ HEADER ------------------ -->
   <header>
     <div class="container nav">
-      <!-- Logo sa website -->
       <h2 class="logo">BSIT Department</h2>
-      <!-- Navigation menu / links padulong sa lain nga pages -->
       <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">Program Profile</a>
-        <a href="faculty.html">Faculty</a>
-        <!-- Active page mao ni karon -->
-        <a href="organizations.html" class="active">Student Organizations</a>
-        <a href="announcements.html">Announcements</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact</a>
+        <a href="about.php">About</a>
+        <a href="faculty.php">Faculty</a>
+        <a href="organizations.php">Student Organizations</a>
+        <a href="announcements.php">Announcements</a>
+        <a href="events.php">Events</a>
+        <a href="contact.php">Contact</a>
       </nav>
+      <!-- Hamburger Icon -->
+      <div class="hamburger" onclick="toggleMenu()">☰</div>
     </div>
   </header>
 
-  <!-- ------------------ MAIN CONTENT ------------------ -->
+  <!-- Hamburger Dropdown -->
+  <div id="hamburgerMenu" class="hamburger-menu">
+    <button onclick="logout()">Logout</button>
+  </div>
   <main class="container">
-    <!-- Section title -->
     <h2 class="section-title">Student Organizations</h2>
 
-    <!-- Organization cards -->
     <section class="org-cards">
-      <!-- Individual organization card -->
       <div class="org-card">
         <h3>IT Society</h3>
         <p>A student organization that promotes IT knowledge and skill-building activities.</p>
@@ -56,10 +55,11 @@
       </div>
     </section>
   </main>
-
-  <!-- ------------------ FOOTER ------------------ -->
+  
   <footer>
-    <p>&copy; 2025 BSIT Department — All Rights Reserved.</p> <!-- Copyright info -->
+    <p>&copy; 2025 BSIT Department — All Rights Reserved.</p>
   </footer>
+
+  <script src="nav.js"></script>
 </body>
 </html>
