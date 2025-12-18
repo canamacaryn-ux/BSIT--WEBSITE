@@ -1,32 +1,61 @@
-// Kuhaon ang button nga naay class nga "btn" ug i-add ang click event listener
-document.querySelector(".btn").addEventListener("click", function(e){
-  e.preventDefault(); // Pugngan ang default behavior sa link (dili mo-redirect)
-  // Scroll smoothly padulong sa section nga naay class nga "features"
-  document.querySelector(".features").scrollIntoView({behavior:"smooth"});
+// Smooth scroll to features (home page only if button exists)
+const btn = document.querySelector(".btn");
+if (btn) {
+  btn.addEventListener("click", function(e) {
+    e.preventDefault();
+    const featuresSection = document.querySelector(".features");
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+}
+
+// Highlight active nav link
+document.querySelectorAll("nav a").forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add("active");
+  }
 });
 
-// Kuhaon tanan <a> links sa navigation
-document.querySelectorAll("nav a").forEach(link=>{
-  // Kung ang link nagmatch sa current page URL, i-add ang "active" class
-  if(link.href===window.location.href) link.classList.add("active");
-});
-
-// Array sa features nga ipakita sa "Highlights" section
-const features = [
-  {title:"Quality Education", description:"Industry-ready curriculum and hands-on learning."},
-  {title:"Active Community", description:"BSIT events, competitions, and student organizations."},
-  {title:"Professional Training", description:"Workshops, certifications, and career guidance."}
-];
-
-// Kuhaon ang container nga grid diin ipakita ang mga cards
+// Auto-generate homepage cards (if section exists)
 const grid = document.querySelector(".grid");
+if (grid) {
+  const features = [
+    {title: "Quality Education", description: "Industry-ready curriculum and hands-on learning."},
+    {title: "Active Community", description: "BSIT events, competitions, and student organizations."},
+    {title: "Professional Training", description: "Workshops, certifications, and career guidance."}
+  ];
 
-// I-loop ang features array ug himoong dynamic cards
-features.forEach(item=>{
-  const div = document.createElement("div"); // Himo ug <div> para sa card
-  div.classList.add("card"); // I-add ang "card" class para sa styling
-  // I-set ang inner HTML sa card: title ug description
-  div.innerHTML=`<h3>${item.title}</h3><p>${item.description}</p>`;
-  // I-append ang card sa grid container
-  grid.appendChild(div);
+  features.forEach(item => {
+    const div = document.createElement("div");
+    div.classList.add("card");
+    div.innerHTML = `<h3>${item.title}</h3><p>${item.description}</p>`;
+    grid.appendChild(div);
+  });
+}
+
+
+// ---------------- PAGE TRANSITION EFFECT ----------------
+
+// Fade-IN on page load
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("page-loaded");
 });
+
+// Fade-OUT when clicking nav links
+document.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', function(e) {
+    if (this.target === "_blank" || this.href.includes("#")) return;
+
+    e.preventDefault();
+    const goTo = this.href;
+
+    document.body.classList.remove("page-loaded");
+    document.body.classList.add("page-transition");
+
+    setTimeout(() => {
+      window.location.href = goTo;
+    }, 500);
+  });
+});
+
